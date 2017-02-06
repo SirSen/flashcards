@@ -13,3 +13,12 @@ module Flashcards
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+require File.expand_path('../boot', __FILE__)
+
+module SampleApp
+  class Application < Rails::Application
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+  end
+end
