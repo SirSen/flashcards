@@ -9,16 +9,30 @@
     </head>
 
     <body>
-        <section id="container">
 
-            <header class="clearfix">
-                <h1>Флэшкарточкер</h1>
-                <ul class="navigation-links">
-                    <li><a href="#">Все карточки</a></li>
-                    <li><a href="#">Добавить карточку</a</li>
-                </ul>
-            </header>
+        <div class="container">
+
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Флэшкарточкер</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">Все карточки</a>
+                        </li>
+                        <li>
+                            <a href="#">Добавить карточку</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
             <%= yield %>
-        </section>
+        </div>
+
     </body>
 </html>
