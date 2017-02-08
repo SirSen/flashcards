@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Карточки</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Original</th>
+                <th>Translated</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @cards.each do |card| %>
+
+            <tr>
+                <td><%= card.original %></td>
+                <td><%= card.translated %></td>
+                <td><%= card.review.strftime('%d-%m-%Y') %></td>
+            </tr>
+
+            <% end  %>
+        </tbody>
+    </table>
+</div>
