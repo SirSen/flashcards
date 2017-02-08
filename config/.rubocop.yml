@@ -1,14 +1,12 @@
 Style/StringLiterals:
+  Description: Checks if uses of quotes match the configured preference.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
+  Enabled: false
   EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
-  # If `true`, strings which span multiple lines using `\` for continuation must
-  # use the same type of quotes on each line.
-  ConsistentQuotesInMultiline: false
 
 Style/StringLiteralsInInterpolation:
+  Description: >-
+                 Checks if uses of quotes inside expressions in interpolated
+                 strings match the configured preference.
+  Enabled: false
   EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
