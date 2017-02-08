@@ -1,4 +1,4 @@
-Style/StringLitera
+Style/StringLitera:
 resources :photos, only: [:index, :show]
 ls:
   Description: Checks if uses of quotes match the configured preference.
