@@ -12,8 +12,6 @@ class Card < ApplicationRecord
   end
 
   def original_translated_same
-    if original.downcase.strip == translated.downcase.strip
-      errors.add(:translated, 'Оригинал и перевод совпадают')
-    end
+    errors.add(:translated, 'Оригинал и перевод совпадают') unless original.downcase.strip != translated.downcase.strip
   end
 end
