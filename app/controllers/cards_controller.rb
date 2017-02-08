@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-
   def index
     @cards = Card.all
   end
@@ -27,11 +26,11 @@ class CardsController < ApplicationController
   def destroy
     @card = Card.find(params[:id])
     if @card.destroy
-        flash[:notice] = "Карточка удалена"
-        redirect_to cards_path
+      flash[:notice] = 'Карточка удалена'
+      redirect_to cards_path
     else
-        render('delete')
-    end  
+      render('delete')
+    end
   end
 
   private
@@ -40,7 +39,7 @@ class CardsController < ApplicationController
     @card = Card.new(cards_params)
     if @card.original.downcase.strip != @card.translated.downcase.strip
       if @card.save
-        flash[:notice] = "Карточка #{params[:action] == 'create' ? "создана" : 'обновлена'}"
+        flash[:notice] = "Карточка #{params[:action] == 'create' ? 'создана' : 'обновлена'}"
         redirect_to(cards_path)
       else
         render('new')
@@ -53,5 +52,4 @@ class CardsController < ApplicationController
   def cards_params
     params.require(:card).permit(:original, :translated)
   end
-
 end
