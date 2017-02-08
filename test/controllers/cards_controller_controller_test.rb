@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CardsControllerControllerTest < ActionDispatch::IntegrationTest
+class CardsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get cards_controller_index_url
     assert_response :success
