@@ -2,9 +2,11 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Original</th>
-            <th>Translated</th>
-            <th>Review</th>
+            <th class="text-center">Оригинал</th>
+            <th class="text-center">Перевод</th>
+            <th class="text-center">Дата пересмотра</th>
+            <th class="text-center col-md-1"></th>
+            <th class="text-center col-md-1"></th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +17,8 @@
             <td><%= card.original %></td>
             <td><%= card.translated %></td>
             <td><%= card.review.strftime('%d-%m-%Y') %></td>
+            <td class="text-center"><%= link_to("Изменить", edit_card_path(card) )  %></td>
+            <td class="text-center"><%= link_to("Удалить", delete_card_path(card) )  %></td>
         </tr>
 
         <% end  %>

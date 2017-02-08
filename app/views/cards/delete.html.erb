@@ -1,0 +1,8 @@
+<%= link_to("<<вернуться назад", cards_path) %>
+
+    <h2>Вы действительно хотите удалить карточку?</h2>
+    <br>
+
+    <%= simple_form_for @card, method: 'delete' do |f| %>
+      <%= f.button :submit, 'Удалить карточку' %>
+    <% end %>

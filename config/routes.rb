@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
-  get 'cards_controller/index'
-
   root to: 'public#index'
 
-  resources :cards
+  resources :cards do
+    member do
+      get :delete
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

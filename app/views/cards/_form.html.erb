@@ -1,0 +1,7 @@
+<div class=f.error_messages "col-md-4">
+   <%= simple_form_for @card do |f| %>
+    <%= f.input :original %>
+    <%= f.input :translated %>
+    <%= f.button :submit, params[:action] == 'new' ? "Создать карточку" : 'Обновить карточку' %>
+  <% end %>
+</div
