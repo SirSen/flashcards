@@ -14,6 +14,9 @@ Style/StringLiteralsInInterpolation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/Documentation: 
+  Enabled: false
+
 Metrics/LineLength:
   # This will disable the rule completely, regardless what other options you put
   Enabled: false
