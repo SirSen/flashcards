@@ -1,11 +1,3 @@
-Style/StringLitera:
-resources :photos, only: [:index, :show]
-ls:
-  Description: Checks if uses of quotes match the configured preference.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
-  Enabled: false
-  EnforcedStyle: single_quotes
-
 Style/StringLiteralsInInterpolation:
   Description: >-
                  Checks if uses of quotes inside expressions in interpolated
