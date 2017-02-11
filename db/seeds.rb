@@ -16,8 +16,8 @@ class Parser
   TRANSLATED_XPATH = '//table//td[3]'.freeze
   LINKS_XPATH      = '//div[@class="jsn-article-content"]//ul//a/@href'.freeze
 
-  def initialize
-    @base = 'http://www.languagedaily.com'
+  def initialize base
+    @base = base
     @translations = []
   end
 
@@ -48,7 +48,7 @@ class Parser
   end
 end
 
-parser = Parser.new
+parser = Parser.new 'http://www.languagedaily.com'
 parser.start_parse 'http://www.languagedaily.com/learn-german/vocabulary/common-german-words'
 
 parser.translations.each do |a|
