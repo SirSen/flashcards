@@ -1,7 +1,7 @@
 class Card < ApplicationRecord
   before_create :card_review_time_add
 
-  validates :original, :translated, :review, presence: true
+  validates :original, :translated, presence: true
 
   validate :original_translated_same
 
