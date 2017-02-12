@@ -5,6 +5,13 @@ class Card < ApplicationRecord
 
   validate :original_translated_same
 
+  scope :random, -> { order('random()') }
+  scope :time_to_check, -> { where(['review < ?', Time.now]) }
+
+  def update_review_date!
+    update_columns(review: DateTime.now + 3.days)
+  end
+
   private
 
   def card_review_time_add
