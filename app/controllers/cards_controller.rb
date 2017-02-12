@@ -41,7 +41,6 @@ class CardsController < ApplicationController
   def check_translation
     if @card.original.downcase.strip == params[:other][:original_word].downcase.strip
       @card.update_review_date!
-      @card.save
       flash[:notice] = 'Верно!'
     else
       flash[:notice] = 'Ошибка'
