@@ -1,8 +1,6 @@
 class PublicController < ApplicationController
   def index
     @card = Card.time_to_check.random.first
-    if !@card
-      flash[:notice] = "Нет свежих карточек"
-    end
+    flash[:notice] = "Нет свежих карточек" if !@card
   end
 end
