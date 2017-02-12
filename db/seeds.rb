@@ -16,13 +16,13 @@ class Parser
   TRANSLATED_XPATH = '//table//td[3]'.freeze
   LINKS_XPATH      = '//div[@class="jsn-article-content"]//ul//a/@href'.freeze
 
-  def initialize base
+  def initialize(base)
     @base = base
     @translations = []
   end
 
   def start_parse(link)
-    page = Nokogiri::HTML(open(link))
+    page = Nokogiri::HTML(open(@base + link))
     add_translations page
     links = page.xpath(LINKS_XPATH)
 
@@ -49,8 +49,8 @@ class Parser
 end
 
 parser = Parser.new 'http://www.languagedaily.com'
-parser.start_parse 'http://www.languagedaily.com/learn-german/vocabulary/common-german-words'
+parser.start_parse '/learn-german/vocabulary/common-german-words'
 
 parser.translations.each do |a|
-  Card.create(original: a[:original], translated: a[:translated])
+  Card.create(a)
 end
