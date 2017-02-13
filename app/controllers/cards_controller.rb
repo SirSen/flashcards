@@ -35,13 +35,13 @@ class CardsController < ApplicationController
                      else
                        'Карточку удалить не удалось'
                      end
-    redirect_to cards_path
+    redirect_to(cards_path)
   end
 
   def check
-    result = CheckTranslation.call id: params[:id], original_word: params[:other][:original_word]
+    result = CheckTranslation.call(id: params[:id], original_word: params[:other][:original_word])
     flash[:notice] = result.notice
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   private
