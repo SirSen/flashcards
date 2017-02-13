@@ -38,13 +38,9 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-  def check_translation
-    if @card.original.downcase.strip == params[:other][:original_word].downcase.strip
-      @card.update_review_date!
-      flash[:notice] = 'Верно!'
-    else
-      flash[:notice] = 'Ошибка'
-    end
+  def check
+    result = CheckTranslation.call id: params[:id], original_word: params[:other][:original_word]
+    flash[:notice] = result.notice
     redirect_to root_path
   end
 

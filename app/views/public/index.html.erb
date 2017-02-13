@@ -6,7 +6,7 @@
 
 <% if @card %>
   <div class="col-md-12">
-       <%= simple_form_for @card, url: check_translation_card_path(@card.id), method: "post" do |f| %>
+       <%= simple_form_for @card, url: check_card_path(@card.id), method: "post" do |f| %>
 
       <%= f.input :translated, required: false, readonly:  true, label: 'Перевод' %>
 
