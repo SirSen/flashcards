@@ -5,10 +5,13 @@ class Card < ApplicationRecord
 
   validate :original_translated_same
 
+  scope :random, -> { order('random()') }
+  scope :time_to_check, -> { where(['review < ?', Time.now]) }
+
   private
 
   def card_review_time_add
-    self.review = Time.now + 3.days
+    self.review = 3.days.since
   end
 
   def original_translated_same

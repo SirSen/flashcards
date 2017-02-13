@@ -3,8 +3,7 @@ Style/StringLiteralsInInterpolation:
                  Checks if uses of quotes inside expressions in interpolated
                  strings match the configured preference.
   Enabled: false
-  EnforcedStyle: single_quotes
-
+  
 Style/FrozenStringLiteralComment:
   Enabled: false
 

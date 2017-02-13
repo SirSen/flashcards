@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :card_find, only: [:edit, :update, :destroy]
+  before_action :card_find, only: [:edit, :update, :destroy, :check]
   def index
     @cards = Card.all
   end
@@ -30,12 +30,18 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    if @card.destroy
-      flash[:notice] = 'Карточка удалена'
-    else
-      flash[:notice] = 'Карточку удалить не удалось'
-    end
-    redirect_to cards_path
+    flash[:notice] = if @card.destroy
+                       'Карточка удалена'
+                     else
+                       'Карточку удалить не удалось'
+                     end
+    redirect_to(cards_path)
+  end
+
+  def check
+    result = CheckTranslation.call(id: params[:id], original_word: params[:other][:original_word])
+    flash[:notice] = result.notice
+    redirect_to(root_path)
   end
 
   private
