@@ -8,14 +8,10 @@ class Card < ApplicationRecord
   scope :random, -> { order('random()') }
   scope :time_to_check, -> { where(['review < ?', Time.now]) }
 
-  def update_review_date!
-    update_columns(review: DateTime.now + 3.days)
-  end
-
   private
 
   def card_review_time_add
-    self.review = Time.now + 3.days
+    self.review = 3.days.since
   end
 
   def original_translated_same

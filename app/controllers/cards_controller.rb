@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :card_find, only: [:edit, :update, :destroy, :check_translation]
+  before_action :card_find, only: [:edit, :update, :destroy, :check]
   def index
     @cards = Card.all
   end
