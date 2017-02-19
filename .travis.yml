@@ -7,8 +7,6 @@ services:
   - docker
   - postgresql
 
-
-
 before_install:
   - sudo apt-get update
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
@@ -18,9 +16,8 @@ before_install:
 
 before_script:
     - psql -c 'create database travis_ci_test;' -U postgres
+    - cp config/database.travis.yml config/database.yml
 
 language: ruby
 rvm:
   - 2.3.3
-script:
-  - bundle exec rspec
