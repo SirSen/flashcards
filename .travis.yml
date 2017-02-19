@@ -15,9 +15,12 @@ before_install:
   - sudo docker pull centos:centos${OS_VERSION}
 
 before_script:
-    - cp config/database.travis.yml config/database.yml
-    - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
 
 language: ruby
 rvm:
   - 2.3.3
+
+script:
+  - bundle exec rspec
