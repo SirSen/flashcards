@@ -7,8 +7,7 @@ services:
   - docker
   - postgresql
 
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+
 
 before_install:
   - sudo apt-get update
@@ -17,9 +16,11 @@ before_install:
   - sleep 5
   - sudo docker pull centos:centos${OS_VERSION}
 
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+
 language: ruby
 rvm:
   - 2.3
 script:
-- tests/setup_tests.sh ${OS_VERSION}
   - bundle exec rspec
