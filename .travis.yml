@@ -1,14 +1,13 @@
 sudo: required
 env:
   matrix:
-
   - OS_TYPE=centos OS_VERSION=7
 
 services:
   - docker
   - postgresql
 
-  before_script:
+before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 
 before_install:
@@ -18,12 +17,9 @@ before_install:
   - sleep 5
   - sudo docker pull centos:centos${OS_VERSION}
 
-
-script:
- # Run tests in Container
-- tests/setup_tests.sh ${OS_VERSION}
 language: ruby
 rvm:
   - 2.3
 script:
+- tests/setup_tests.sh ${OS_VERSION}
   - bundle exec rspec
