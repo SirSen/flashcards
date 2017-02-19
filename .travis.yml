@@ -1,7 +1,10 @@
 sudo: required
 env:
+  DB=postgresql
+  
   matrix:
-  - OS_TYPE=centos OS_VERSION=7
+    OS_TYPE=centos OS_VERSION=7
+
 
 services:
   - docker
@@ -19,5 +22,10 @@ script:
 - tests/setup_tests.sh ${OS_VERSION}
 language: ruby
 rvm:
-  - 2.3
-script: "bundle exec rspec"
+  - 2.3.3
+script: "bundle exec rake db:test:prepare"
+        "bundle exec rspec spec/"
+before_script:
+  psql -c 'create database my_app_test' -U postgres
+
+script: bundle exec rspec spec

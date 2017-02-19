@@ -53,13 +53,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'byebug'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem 'simplecov', require: false
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'travis'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
