@@ -1,9 +1,7 @@
 sudo: required
 env:
   DB=postgresql
-  
-  matrix:
-    OS_TYPE=centos OS_VERSION=7
+  OS_TYPE=centos OS_VERSION=7
 
 
 services:
