@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Card do
+describe CheckTranslation do
   before do
     @test_card = FactoryGirl.create(:card, original: 'original', translated: 'translated')
   end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Card do
-  subject { Card.new }
 
   context 'before saved' do
     it 'check that translation and original not same' do
