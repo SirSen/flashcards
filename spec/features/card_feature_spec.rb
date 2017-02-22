@@ -1,17 +1,17 @@
-describe 'Cards', type: :feature do
+describe 'Card', type: :feature do
   context 'valid card' do
     before :each do
       visit new_card_path
     end
 
-    it 'Create valid card' do
+    it 'create success' do
       fill_in 'card_original', with: 'original'
       fill_in 'card_translated', with: 'translated'
       click_button 'Отправить'
       expect(page).to have_content 'Карточка создана'
     end
 
-    it 'Create not valid card' do
+    it 'create fails' do
       fill_in 'card_original', with: 'original'
       fill_in 'card_translated', with: ' original'
       click_button 'Отправить'
@@ -19,7 +19,7 @@ describe 'Cards', type: :feature do
     end
   end
 
-  context 'The check translation process' do
+  context 'check translation' do
     before :each do
       Card.create(original: 'original', translated: 'translated')
       time = 4.days.since
@@ -27,13 +27,13 @@ describe 'Cards', type: :feature do
       visit root_path
     end
 
-    it 'Check translation Success' do
+    it 'process success' do
       fill_in 'Оригинал', with: 'original'
       click_button 'Отправить'
       expect(page).to have_content 'Верно!'
     end
 
-    it 'Check translation Fail' do
+    it 'process fail' do
       fill_in 'Оригинал', with: ' original23 '
       click_button 'Отправить'
       expect(page).to have_content 'Ошибка!'
