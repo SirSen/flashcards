@@ -24,7 +24,7 @@ describe Card do
       cards = Card.time_to_check
 
       cards.each do |card|
-        expect(card.review).to < Time.now
+        expect(card.review).to be < Time.now
       end
     end
   end
