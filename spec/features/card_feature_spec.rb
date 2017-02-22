@@ -30,7 +30,7 @@ describe 'Card', type: :feature do
     it 'process success' do
       fill_in 'Оригинал', with: 'original'
       click_button 'Отправить'
-      expect(page).to have_content 'Верно!'
+      expect(page).to have_content 'Верно'
     end
 
     it 'process fail' do
