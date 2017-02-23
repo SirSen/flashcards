@@ -1,4 +1,5 @@
 class Card < ApplicationRecord
+  belongs_to :user
   before_create :card_review_time_add
 
   validates :original, :translated, presence: true

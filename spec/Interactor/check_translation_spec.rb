@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe CheckTranslation do
   before do
-    @test_card = FactoryGirl.create(:card, original: 'original', translated: 'translated')
+    user = User.create(email: 'test@test.com', password: 'test')
+    @test_card = FactoryGirl.create(:card, original: 'original', translated: 'translated', user: user)
   end
 
   it 'if words equal' do
