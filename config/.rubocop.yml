@@ -3,7 +3,7 @@ Style/StringLiteralsInInterpolation:
                  Checks if uses of quotes inside expressions in interpolated
                  strings match the configured preference.
   Enabled: false
-  
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -21,3 +21,11 @@ Metrics/LineLength:
   # If you want the rule not to apply to a specific folder/file
   Exclude:
     - 'db/schema.rb'
+
+  Style/UnneededPercentQ:
+  Description: 'Checks for %q/%Q when single quotes or double quotes would do.'
+  StyleGuide: '#percent-q'
+  Enabled: false
+
+  StringLiterals:
+  Enabled: false

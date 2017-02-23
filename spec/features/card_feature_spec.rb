@@ -21,9 +21,9 @@ describe 'Card', type: :feature do
 
   context 'check translation' do
     before :each do
-      user = User.create(email: 'test@test.com', password: 'test')
-      Card.create(original: 'original', translated: 'translated', user: user)
-      Card.create(original: 'original', translated: 'translated', user: user)
+      user = create(:user)
+      create(:card,user: user)
+      create(:card,user: user)
       time = 4.days.since
       Time.stub(:now) { time }
       visit root_path
