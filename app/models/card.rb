@@ -1,8 +1,9 @@
 class Card < ApplicationRecord
+  belongs_to :user
   before_create :card_review_time_add
 
   validates :original, :translated, presence: true
-
+  
   validate :original_translated_same
 
   scope :random, -> { order('random()') }
