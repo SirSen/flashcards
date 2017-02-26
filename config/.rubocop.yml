@@ -28,4 +28,22 @@ Metrics/LineLength:
   Enabled: false
 
   StringLiterals:
-  Enabled: false
+    Enabled: false
+  Metrics/LineLength:
+    Enabled: false
+  Style/Tab:
+    Enabled: false
+  Style/FrozenStringLiteralComment:
+    Enabled: false
+  Documentation:
+    Enabled: false
+  Style/EmptyLines:
+    Enabled: false
+  Style/EmptyLinesAroundBody:
+    Enabled: false
+  Style/EmptyLinesAroundMethodDefinition:
+    Enabled: false
+  Style/EmptyLinesAroundBlockBody:
+    Enabled: false
+  Style/FinalNewline:
+    Enabled: true
