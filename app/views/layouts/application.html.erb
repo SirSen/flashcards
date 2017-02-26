@@ -23,9 +23,24 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><%= link_to("Все карточки",cards_path) %></li>
                         <li><%= link_to("Добавить карточку",new_card_path) %></li>
+                        <% if current_user %>
+                        <li>  <%= link_to "Отредактировать профиль", edit_user_path(current_user.id) %></li>
+                          <li><%= link_to "Выйти", :logout, method: :post %></li>
+                        <% else %>
+                          <li><%= link_to "Зарегистрироваться", new_user_path %> </li>
+                          <li><%= link_to "Войти", :login %></li>
+                        <% end %>
                     </ul>
                 </div>
             </nav>
+
+            <% if !flash[:alert].blank? %>
+              <p class="alert alert-warning"><%= flash[:alert] %></p>
+            <% end %>
+
+            <% if !flash[:error].blank? %>
+              <p class="alert alert-danger"><%= flash[:error] %></p>
+            <% end %>
 
             <% if !flash[:notice].blank? %>
               <p class="bg-success"><%= flash[:notice] %></p>
@@ -35,4 +50,5 @@
         </div>
 
     </body>
+
 </html>

@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :card_find, only: [:edit, :update, :destroy, :check]
   def index
-    @cards = Card.all
+    @cards = Card.belongs_to_current_user(current_user).all
   end
 
   def new
@@ -10,6 +10,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(cards_params)
+    @card.user = current_user
     if @card.save
       flash[:notice] = 'Карточка создана'
       redirect_to(cards_path)

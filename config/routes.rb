@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'user_sessions/new'
+  get 'oauths/oauth'
 
-  get 'user_sessions/create'
-
-  get 'user_sessions/destroy'
+  get 'oauths/callback'
 
   root to: 'public#index'
 
@@ -13,11 +11,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:show] do
-  end
+  resources :user_sessions
+  resources :users
 
-  resource :user, only: [] do
-    get :login, on: :member
-  end
+  get '/login' => 'user_sessions#new', as: :login
+  post '/logout' => 'user_sessions#destroy', as: :logout
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'oath/oauth'
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 end

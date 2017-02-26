@@ -3,11 +3,12 @@ class Card < ApplicationRecord
   before_create :card_review_time_add
 
   validates :original, :translated, presence: true
-  
+
   validate :original_translated_same
 
   scope :random, -> { order('random()') }
   scope :time_to_check, -> { where(['review < ?', Time.now + 3.days]) }
+  scope :belongs_to_current_user, -> (current_user) { where(user_id: current_user.id) }
 
   private
 
