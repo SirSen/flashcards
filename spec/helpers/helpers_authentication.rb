@@ -1,4 +1,4 @@
-module Helpers_Authentication
+module HelpersAuthentication
 
   def login(user)
     visit login_path

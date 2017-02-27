@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :card_find, only: [:edit, :update, :destroy, :check]
   def index
-    @cards = Card.belongs_to_current_user(current_user).all
+    @cards = current_user.cards
   end
 
   def new
