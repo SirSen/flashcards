@@ -1,0 +1,26 @@
+<section id="registration">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="form-wrap">
+                        <h1 class="text-center">Войти в аккаунт</h1>
+                        <%= simple_form_for @user do |f| %>
+                        <div class="form-group">
+                          <%= f.label :email, 'Email', class: 'sr-only'%>
+                          <%= f.input :email, placeholder: "somebody@example.com",label: false %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.label :password, 'Password', class: 'sr-only'%>
+                          <%= f.input :password,placeholder: "пароль", label: false %>
+                          <%= f.label :password_confirmation, 'Password confirmation', class: 'sr-only' %>
+                          <%= f.input :password_confirmation,placeholder: "введите пароль еще раз", label: false %>
+                        </div>
+                        <%= f.button :submit, 'Log in',id: 'btn-login', class: 'btn-custom btn-lg btn-block' %>
+
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</section>

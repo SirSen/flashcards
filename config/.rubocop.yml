@@ -1,3 +1,6 @@
+StringLiterals:
+  Enabled: false
+
 Style/StringLiteralsInInterpolation:
   Description: >-
                  Checks if uses of quotes inside expressions in interpolated
@@ -25,7 +28,4 @@ Metrics/LineLength:
   Style/UnneededPercentQ:
   Description: 'Checks for %q/%Q when single quotes or double quotes would do.'
   StyleGuide: '#percent-q'
-  Enabled: false
-
-  StringLiterals:
   Enabled: false
