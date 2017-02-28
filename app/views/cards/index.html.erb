@@ -5,6 +5,7 @@
             <th class="text-center align-middle">Оригинал</th>
             <th class="text-center align-middle">Перевод</th>
             <th class="text-center align-middle">Дата пересмотра</th>
+            <th class="text-center col-md-2"></th>
             <th class="text-center col-md-1"></th>
             <th class="text-center col-md-1"></th>
         </tr>
@@ -17,6 +18,7 @@
             <td><%= card.original %></td>
             <td><%= card.translated %></td>
             <td><%= card.review.strftime('%d-%m-%Y') %></td>
+            <td> <%= image_tag(card.picture) %>  </td>
             <td class="text-center"><%= link_to 'Изменить', edit_card_path(card)  %></td>
             <td class="text-center"><%= link_to 'Удалить', card_path(card), method: :delete, data: { confirm: "Вы уверены?" } %></td>
         </tr>
