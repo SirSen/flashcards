@@ -13,7 +13,8 @@
       <%= simple_fields_for :other do |o| %>
         <%= o.input :original_word, as: :string, label: 'Оригинал' %>
       <% end %>
-
+      <td> <%= image_tag(@card.picture) %>  </td>
+      <br>
       <%= f.button :submit, 'Отправить' %>
       <% end %>
   </div>

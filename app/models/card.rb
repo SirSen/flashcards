@@ -1,4 +1,6 @@
 class Card < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+
   belongs_to :user
   before_create :card_review_time_add
 
